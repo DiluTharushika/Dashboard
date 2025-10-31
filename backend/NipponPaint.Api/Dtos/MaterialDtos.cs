@@ -7,6 +7,7 @@ namespace NipponPaint.Api.Dtos
         [Required] public string Name { get; set; } = null!;
         [Required] public string Code { get; set; } = null!;
         [Required] public string Batch { get; set; } = null!;
+        [Required] public DateTime Date { get; set; }
     }
 
     public class MaterialUpdateDto
@@ -14,6 +15,7 @@ namespace NipponPaint.Api.Dtos
         [Required] public string Name { get; set; } = null!;
         [Required] public string Code { get; set; } = null!;
         [Required] public string Batch { get; set; } = null!;
+        [Required] public DateTime Date { get; set; }
     }
 
     public class MaterialReadDto
@@ -22,5 +24,6 @@ namespace NipponPaint.Api.Dtos
         public string Name { get; set; } = null!;
         public string Code { get; set; } = null!;
         public string Batch { get; set; } = null!;
+        public DateTime Date { get; set; }
     }
 }

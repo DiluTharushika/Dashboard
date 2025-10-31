@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nippon Paint\\backend\\NipponPaint.Api\\NipponPaint.Api.csproj": {}
+    "D:\\Dashboard\\backend\\NipponPaint.Api\\NipponPaint.Api.csproj": {}
   },
   "projects": {
-    "D:\\Nippon Paint\\backend\\NipponPaint.Api\\NipponPaint.Api.csproj": {
+    "D:\\Dashboard\\backend\\NipponPaint.Api\\NipponPaint.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nippon Paint\\backend\\NipponPaint.Api\\NipponPaint.Api.csproj",
+        "projectUniqueName": "D:\\Dashboard\\backend\\NipponPaint.Api\\NipponPaint.Api.csproj",
         "projectName": "NipponPaint.Api",
-        "projectPath": "D:\\Nippon Paint\\backend\\NipponPaint.Api\\NipponPaint.Api.csproj",
+        "projectPath": "D:\\Dashboard\\backend\\NipponPaint.Api\\NipponPaint.Api.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Nippon Paint\\backend\\NipponPaint.Api\\obj\\",
+        "outputPath": "D:\\Dashboard\\backend\\NipponPaint.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

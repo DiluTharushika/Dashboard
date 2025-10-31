@@ -8,7 +8,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  /*const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -40,7 +40,19 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
-  };
+  };*/
+  const handleLogin = (e) => {
+  e.preventDefault();
+  if (email === "test@gmail.com" && password === "1234") {
+    localStorage.setItem("token", "dummy-token");
+    localStorage.setItem("user", JSON.stringify({ email }));
+    alert("Login successful!");
+    navigate("/dashboard");
+  } else {
+    alert("Invalid email or password");
+  }
+};
+
 
   return (
     <div className="login-container">

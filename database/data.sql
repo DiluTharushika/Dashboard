@@ -22,6 +22,7 @@ CREATE TABLE Materials (
     name VARCHAR(100) NOT NULL,
     code VARCHAR(50) NOT NULL,
     batch VARCHAR(50) NOT NULL,
+    date DATE NOT NULL,
     FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 GO

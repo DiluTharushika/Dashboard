@@ -9,10 +9,11 @@ const Dashboard = () => {
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
   const [batch, setBatch] = useState("");
+  const[date,setDate]=useState("");
   const [editingId, setEditingId] = useState(null);
   const [showProfile, setShowProfile] = useState(false);
 
-  const navigate = useNavigate();
+ /* const navigate = useNavigate();
 
   //  get token & user from localStorage
   const token = localStorage.getItem("token");
@@ -129,6 +130,63 @@ const Dashboard = () => {
     localStorage.removeItem("user");
     navigate("/login");
   };
+*/
+const navigate = useNavigate();
+
+  // fake user (optional: remove if you don’t need)
+  const user = {
+    username: "Demo User",
+    email: "test@gmail.com",
+    phone: "000-000-0000",
+  };
+
+  const addOrUpdateMaterial = () => {
+    if (!name || !code || !batch ||!date ) {
+      alert("Please fill all fields before adding.");
+      return;
+    }
+
+    if (editingId) {
+      setMaterials((prev) =>
+        prev.map((m) =>
+          m.id === editingId ? { ...m, name, code, batch,date } : m
+        )
+      );
+      setEditingId(null);
+     
+    } else {
+      setMaterials((prev) => [
+        ...prev,
+        { id: Date.now(), name, code, batch ,date },
+      ]);
+     
+    }
+
+    setName("");
+    setCode("");
+    setBatch("");
+    setDate("");
+  };
+
+  const handleEdit = (id) => {
+    const mat = materials.find((m) => m.id === id);
+    if (mat) {
+      setName(mat.name);
+      setCode(mat.code);
+      setBatch(mat.batch);
+      setDate(mat.date);
+      setEditingId(id);
+    }
+  };
+
+  const handleDelete = (id) => {
+    setMaterials((prev) => prev.filter((m) => m.id !== id));
+    alert("Material deleted!");
+  };
+
+  const onLogout = () => {
+    navigate("/login");
+  };
 
   return (
     <div>
@@ -179,6 +237,13 @@ const Dashboard = () => {
             onChange={(e) => setBatch(e.target.value)}
             style={styles.input}
           />
+          <input
+            type="date"
+            placeholder="Date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            style={styles.input}
+          />
           <button onClick={addOrUpdateMaterial} style={styles.button}>
             {editingId ? "Update Material" : "Add Material"}
           </button>
@@ -192,6 +257,7 @@ const Dashboard = () => {
                 <th style={styles.th}>Material Name</th>
                 <th style={styles.th}>Code</th>
                 <th style={styles.th}>Batch</th>
+                <th style={styles.th}>Exp Date</th>
                 <th style={styles.th}>Actions</th>
               </tr>
             </thead>
@@ -201,6 +267,7 @@ const Dashboard = () => {
                   <td style={styles.td}>{mat.name}</td>
                   <td style={styles.td}>{mat.code}</td>
                   <td style={styles.td}>{mat.batch}</td>
+                  <td style={styles.td}>{mat.date}</td>
                   <td style={{ ...styles.td, ...styles.actionTd }}>
                     <button
                       onClick={() => handleEdit(mat.id)}
